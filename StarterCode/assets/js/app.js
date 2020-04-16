@@ -39,13 +39,12 @@ var svg = d3
 var chartGroup = svg.append("g")
 .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
- // Initial Params
+// Initial Params
     var chosenXAxis = "poverty";
     var chosenYAxis = "healthcare";
 
     // Import Data from data.csv
-    d3.csv("assets/data/data.csv", function(error, healthInfo) {
-        if (error) return console.warn(error);
+d3.csv("assets/data/data.csv").then(function(healthInfo) {
 
         // make sure all the appropriate data is numeric
         healthInfo.forEach(function(data) {
